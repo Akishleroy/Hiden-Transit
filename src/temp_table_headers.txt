@@ -1,0 +1,20 @@
+Ищем заголовки таблицы с сортировкой для этих столбцов:
+
+НУЖНЫ ИКОНКИ СОРТИРОВКИ ДЛЯ:
+- ID импорт (id_import)  
+- ID экспорт (id_export)
+- Номер вагона (nomer_vagona)
+- Страна отправления импорт (strana_otpr_import)
+- Страна назначения экспорт (strana_nazn_export)
+- Страна отправления (strana_otpr)
+- Станция переадресации (stancia_pereaddr)
+- Станция назначения (stancia_nazn)
+- Дата прибытия импорт (data_prib_import)
+- Дата отправления экспорт (data_otpr_export)
+- Вес вагон импорт (ves_import)
+- Вес вагон экспорт (ves_export)
+- Наименование груза (naimenovanie_gruza)
+- Бин грузополучателя (gruzopoluchatel)
+- Бин грузоотправителя (gruzootpravitel)
+
+Найдем TableHead элементы для этих столбцов и добавим к ним onClick={handleSort} и SortIcon компонент.
