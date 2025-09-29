@@ -136,22 +136,22 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
 
   // Данные для компаний
   const companiesData = [
-  { name: 'АО "Астык Транс"', city: 'Астана', probability: 'high', operations: 15674, probabilityScore: 8.7, issues: 234, revenue: 2340000, employees: 156 },
-  { name: 'ТОО "Atasu Logistics"', city: 'Алматы', probability: 'high', operations: 12456, probabilityScore: 9.2, issues: 187, revenue: 1870000, employees: 134 },
-  { name: 'ТОО "Global Service Logistics"', city: 'Алматы', probability: 'medium', operations: 9876, probabilityScore: 6.4, issues: 89, revenue: 1456000, employees: 98 },
-  { name: 'ТОО "Ge Logistics Group"', city: 'Алматы', probability: 'low', operations: 7892, probabilityScore: 3.2, issues: 34, revenue: 1234000, employees: 78 },
-  { name: 'ТОО "RailTransService"', city: 'Астана', probability: 'medium', operations: 5643, probabilityScore: 5.8, issues: 67, revenue: 890000, employees: 45 },
-  { name: 'АО "Кедентранссервис"', city: 'Алматы', probability: 'elevated', operations: 4521, probabilityScore: 7.9, issues: 156, revenue: 756000, employees: 67 },
-  { name: 'ТОО "Тенгизшевройл"', city: 'Атырау', probability: 'medium', operations: 3890, probabilityScore: 5.1, issues: 45, revenue: 567000, employees: 34 },
-  { name: 'ТОО "Феско Центральная Азия"', city: 'Алматы', probability: 'low', operations: 3456, probabilityScore: 2.8, issues: 23, revenue: 456000, employees: 29 },
-  { name: 'ТОО "ResursLogistic"', city: 'Караганда', probability: 'elevated', operations: 2987, probabilityScore: 7.3, issues: 89, revenue: 345000, employees: 56 },
-  { name: 'ТОО "Темиртау Трейд"', city: 'Темиртау', probability: 'medium', operations: 2456, probabilityScore: 4.5, issues: 34, revenue: 234000, employees: 18 },
-  { name: 'ТОО "Трансжол"', city: 'Шымкент', probability: 'low', operations: 1987, probabilityScore: 3.8, issues: 12, revenue: 189000, employees: 23 },
-  { name: 'ТОО "ULEX"', city: 'Алматы', probability: 'high', operations: 1765, probabilityScore: 8.9, issues: 156, revenue: 167000, employees: 45 },
-  { name: 'АО "KTZ Express"', city: 'Астана', probability: 'medium', operations: 1543, probabilityScore: 5.6, issues: 28, revenue: 145000, employees: 17 },
-  { name: 'ТОО "Евросиб Казахстан"', city: 'Алматы', probability: 'low', operations: 1234, probabilityScore: 2.9, issues: 15, revenue: 123000, employees: 14 },
-  { name: 'ТОО "RhinoLogistic"', city: 'Алматы', probability: 'elevated', operations: 987, probabilityScore: 7.1, issues: 67, revenue: 98000, employees: 12 }
-];
+    { name: 'ООО "БелЖД Логистик"', city: 'Минск', probability: 'high', operations: 15674, probabilityScore: 8.7, issues: 234, revenue: 2340000, employees: 156 },
+    { name: 'ЗАО "ТрансКарго"', city: 'Гомель', probability: 'high', operations: 12456, probabilityScore: 9.2, issues: 187, revenue: 1870000, employees: 134 },
+    { name: 'РУП "БелТрансЛогистика"', city: 'Витебск', probability: 'medium', operations: 9876, probabilityScore: 6.4, issues: 89, revenue: 1456000, employees: 98 },
+    { name: 'ОАО "МинскТранс"', city: 'Минск', probability: 'low', operations: 7892, probabilityScore: 3.2, issues: 34, revenue: 1234000, employees: 78 },
+    { name: 'ИП Иванов С.А.', city: 'Брест', probability: 'medium', operations: 5643, probabilityScore: 5.8, issues: 67, revenue: 890000, employees: 45 },
+    { name: 'ООО "ЕвроЛогистик"', city: 'Минск', probability: 'elevated', operations: 4521, probabilityScore: 7.9, issues: 156, revenue: 756000, employees: 67 },
+    { name: 'ЧУП "БрестТранзит"', city: 'Брест', probability: 'medium', operations: 3890, probabilityScore: 5.1, issues: 45, revenue: 567000, employees: 34 },
+    { name: 'ООО "ГродноГруз"', city: 'Гродно', probability: 'low', operations: 3456, probabilityScore: 2.8, issues: 23, revenue: 456000, employees: 29 },
+    { name: 'ЗАО "МогилевЛогистик"', city: 'Могилев', probability: 'elevated', operations: 2987, probabilityScore: 7.3, issues: 89, revenue: 345000, employees: 56 },
+    { name: 'ИП Петров А.В.', city: 'Витебск', probability: 'medium', operations: 2456, probabilityScore: 4.5, issues: 34, revenue: 234000, employees: 18 },
+    { name: 'ООО "ПолесьеТранс"', city: 'Пинск', probability: 'low', operations: 1987, probabilityScore: 3.8, issues: 12, revenue: 189000, employees: 23 },
+    { name: 'РУП "БелКарго"', city: 'Минск', probability: 'high', operations: 1765, probabilityScore: 8.9, issues: 156, revenue: 167000, employees: 45 },
+    { name: 'ЧП "ОршаГруз"', city: 'Орша', probability: 'medium', operations: 1543, probabilityScore: 5.6, issues: 28, revenue: 145000, employees: 17 },
+    { name: 'ООО "БобруйскТранзит"', city: 'Бобруйск', probability: 'low', operations: 1234, probabilityScore: 2.9, issues: 15, revenue: 123000, employees: 14 },
+    { name: 'ИП Сидоров В.И.', city: 'Слуцк', probability: 'elevated', operations: 987, probabilityScore: 7.1, issues: 67, revenue: 98000, employees: 12 }
+  ];
 
   // Финансовые данные
   const financeData = {
@@ -574,7 +574,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                                 </div>
                                 <div className="flex items-center">
                                   <DollarSign className="h-4 w-4 mr-1" />
-                                  {(company.revenue / 1000).toFixed(0)}K тг
+                                  {(company.revenue / 1000).toFixed(0)}K руб
                                 </div>
                                 <div className="flex items-center">
                                   <Users className="h-4 w-4 mr-1" />
@@ -615,7 +615,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                         <div>
                           <p className="text-sm text-gray-600">Всего вагонов</p>
                           <p className="text-2xl font-bold text-gray-900">
-                            {'4,410,695'}
+                            {financeData.totalWagons.toLocaleString()}
                           </p>
                           <p className="text-xs text-gray-500">в системе</p>
                         </div>
@@ -634,7 +634,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm text-gray-600">С большим риском</p>
+                          <p className="text-sm text-gray-600">Под риском</p>
                           <p className="text-2xl font-bold text-red-600">
                             {financeData.riskWagons.toLocaleString()}
                           </p>
@@ -657,7 +657,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm text-gray-600">С меньшим риском</p>
+                          <p className="text-sm text-gray-600">Безопасные</p>
                           <p className="text-2xl font-bold text-green-600">
                             {financeData.safeWagons.toLocaleString()}
                           </p>
@@ -674,11 +674,11 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm text-gray-600">Потеря за вагон</p>
+                          <p className="text-sm text-gray-600">Стоимость за вагон</p>
                           <p className="text-2xl font-bold text-gray-900">
-                            {('700,000')}тг
+                            {(financeData.wagonCost / 1000000).toFixed(1)}M
                           </p>
-                          <p className="text-xs text-gray-500"></p>
+                          <p className="text-xs text-gray-500">рублей</p>
                         </div>
                         <DollarSign className="h-8 w-8 text-purple-600" />
                       </div>
@@ -698,18 +698,23 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                     <CardContent className="space-y-4">
                       <div className="space-y-2">
                         <div className="flex justify-between">
-                          <span className="text-sm text-gray-600">Минимальные потери</span>
+                          <span className="text-sm text-gray-600">Максимальные потери</span>
                           <span className="font-medium text-red-600">
-                            {'942,900,000'} тг
+                            {(financeData.maxLosses / 1000000000).toFixed(1)}B руб
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-sm text-gray-600">Максимальные потери</span>
+                          <span className="text-sm text-gray-600">Текущие потери</span>
                           <span className="font-medium text-orange-600">
-                            {'31,390,800,000'} тг
+                            {(financeData.currentLosses / 1000000).toFixed(1)}M руб
                           </span>
                         </div>
-                        
+                        <div className="flex justify-between">
+                          <span className="text-sm text-gray-600">Потенциальная экономия</span>
+                          <span className="font-medium text-green-600">
+                            {(financeData.potentialSavings / 1000000).toFixed(1)}M руб
+                          </span>
+                        </div>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div 
@@ -744,7 +749,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                         </div>
                         <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
                           <span className="text-sm font-medium">Резервный фонд</span>
-                          <Badge className="bg-yellow-100 text-yellow-800">45.2M тг</Badge>
+                          <Badge className="bg-yellow-100 text-yellow-800">45.2M руб</Badge>
                         </div>
                       </div>
                     </CardContent>
@@ -767,19 +772,19 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                           <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
                               <span className="text-gray-600">Обслуживание системы</span>
-                              <span className="font-medium">2.3M тг</span>
+                              <span className="font-medium">2.3M руб</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">Страхование</span>
-                              <span className="font-medium">1.8M тг</span>
+                              <span className="font-medium">1.8M руб</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">Персонал</span>
-                              <span className="font-medium">4.2M тг</span>
+                              <span className="font-medium">4.2M руб</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">IT инфраструктура</span>
-                              <span className="font-medium">1.1M тг</span>
+                              <span className="font-medium">1.1M руб</span>
                             </div>
                           </div>
                         </CardContent>
@@ -791,11 +796,11 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                           <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
                               <span className="text-gray-600">Экономия за год</span>
-                              <span className="font-medium text-green-600">156.7M тг</span>
+                              <span className="font-medium text-green-600">156.7M руб</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">Вложения</span>
-                              <span className="font-medium text-red-600">45.2M тг</span>
+                              <span className="font-medium text-red-600">45.2M руб</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">ROI</span>
@@ -815,11 +820,11 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                           <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
                               <span className="text-gray-600">Ожидаемые потери</span>
-                              <span className="font-medium text-orange-600">78.3M тг</span>
+                              <span className="font-medium text-orange-600">78.3M руб</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">Предотвращенные</span>
-                              <span className="font-medium text-green-600">234.1M тг</span>
+                              <span className="font-medium text-green-600">234.1M руб</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">Эффективность</span>
@@ -827,7 +832,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">Целевая экономия</span>
-                              <span className="font-medium">500M тг</span>
+                              <span className="font-medium">500M руб</span>
                             </div>
                           </div>
                         </CardContent>
@@ -866,15 +871,15 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                           <div className="space-y-2">
                             <div className="flex justify-between">
                               <span className="text-sm text-gray-600">Текущий</span>
-                              <span className="font-medium">{indicator.current}{indicator.name.includes('%') ? '%' : indicator.name.includes('потери') ? 'M тг' : '%'}</span>
+                              <span className="font-medium">{indicator.current}{indicator.name.includes('%') ? '%' : indicator.name.includes('потери') ? 'M руб' : '%'}</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-sm text-gray-600">Прогноз 1 год</span>
-                              <span className="font-medium text-blue-600">{indicator.forecast_1y}{indicator.name.includes('%') ? '%' : indicator.name.includes('потери') ? 'M тг' : '%'}</span>
+                              <span className="font-medium text-blue-600">{indicator.forecast_1y}{indicator.name.includes('%') ? '%' : indicator.name.includes('потери') ? 'M руб' : '%'}</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-sm text-gray-600">Прогноз 5 лет</span>
-                              <span className="font-medium text-green-600">{indicator.forecast_5y}{indicator.name.includes('%') ? '%' : indicator.name.includes('потери') ? 'M тг' : '%'}</span>
+                              <span className="font-medium text-green-600">{indicator.forecast_5y}{indicator.name.includes('%') ? '%' : indicator.name.includes('потери') ? 'M руб' : '%'}</span>
                             </div>
                           </div>
                         </div>

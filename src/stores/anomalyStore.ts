@@ -364,7 +364,7 @@ function generateAIResponse(message: string): string {
   }
   
   // Общий ответ
-  return `🤖 **AI Ассистент Hide Tranzit**
+  return `🤖 **AI Ассистент Gray Tranzit**
 
 Я проанализировал ваш запрос: "${message}"
 

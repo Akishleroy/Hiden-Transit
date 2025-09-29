@@ -1,7 +1,7 @@
 
-  # Anomaly Monitoring System (1)
+  # Anomaly Monitoring System
 
-  This is a code bundle for Anomaly Monitoring System (1). The original project is available at https://www.figma.com/design/EgWVlpk70U5D2r77KtuSvi/Anomaly-Monitoring-System--1-.
+  This is a code bundle for Anomaly Monitoring System. The original project is available at https://www.figma.com/design/BCDyxb0VguxYTaD770DjfH/Anomaly-Monitoring-System.
 
   ## Running the code
 

@@ -250,7 +250,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
           </div>
           <div className="flex items-center space-x-4">
             {/* Переключатель режима */}
-            <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+            <div className="flex items-center space-x-2 bg-gray-100 dark:bg-slate-700 rounded-lg p-1">
               <Button
                 variant={viewMode === 'probability' ? "default" : "ghost"}
                 size="sm"

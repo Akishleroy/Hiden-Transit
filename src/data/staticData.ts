@@ -1,4 +1,4 @@
-// Централизованные статические данные для Hide Tranzit
+// Централизованные статические данные для Gray Tranzit
 // Этот файл содержит все статические данные приложения
 // Для подключения бэкенда просто замените эти данные на API-вызовы
 
@@ -58,7 +58,7 @@ export const PROBABILITY_DATA = [
     title: 'Высокая вероятность', 
     value: 1347, 
     percentage: 0.18,
-    colorClass: 'bg-gradient-to-br from-red-50 to-red-100 border-red-200 hover:from-red-100 hover:to-red-200 cursor-pointer transition-all duration-200',
+    colorClass: 'bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/30 border-red-200 dark:border-red-700 hover:from-red-100 hover:to-red-200 dark:hover:from-red-800/40 dark:hover:to-red-700/40 cursor-pointer transition-all duration-200',
     textColor: 'text-red-700 dark:text-red-300',
     boldColor: 'text-red-800 dark:text-red-200',
     descColor: 'text-red-600 dark:text-red-400',
@@ -75,11 +75,11 @@ export const PROBABILITY_DATA = [
     title: 'Повышенная вероятность', 
     value: 5892, 
     percentage: 8.08,
-    colorClass: 'bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 hover:from-orange-100 hover:to-orange-200 cursor-pointer transition-all duration-200',
-    textColor: 'text-orange-700',
-    boldColor: 'text-orange-800',
-    descColor: 'text-orange-600',
-    iconColor: 'text-orange-600',
+    colorClass: 'bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 border-orange-200 dark:border-orange-700 hover:from-orange-100 hover:to-orange-200 dark:hover:from-orange-800/40 dark:hover:to-orange-700/40 cursor-pointer transition-all duration-200',
+    textColor: 'text-orange-700 dark:text-orange-300',
+    boldColor: 'text-orange-800 dark:text-orange-200',
+    descColor: 'text-orange-600 dark:text-orange-400',
+    iconColor: 'text-orange-600 dark:text-orange-400',
     description: 'Требуют мониторинга', 
     tooltip: 'Операции с незначительными отклонениями, но в целом соответствующие стандартам',
     icon: AlertCircle,
@@ -92,11 +92,11 @@ export const PROBABILITY_DATA = [
     title: 'Средняя вероятность', 
     value: 12458, 
     percentage: 17.09,
-    colorClass: 'bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200 hover:from-yellow-100 hover:to-yellow-200 cursor-pointer transition-all duration-200',
-    textColor: 'text-yellow-700',
-    boldColor: 'text-yellow-800',
-    descColor: 'text-yellow-600',
-    iconColor: 'text-yellow-600',
+    colorClass: 'bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/30 dark:to-yellow-800/30 border-yellow-200 dark:border-yellow-700 hover:from-yellow-100 hover:to-yellow-200 dark:hover:from-yellow-800/40 dark:hover:to-yellow-700/40 cursor-pointer transition-all duration-200',
+    textColor: 'text-yellow-700 dark:text-yellow-300',
+    boldColor: 'text-yellow-800 dark:text-yellow-200',
+    descColor: 'text-yellow-600 dark:text-yellow-400',
+    iconColor: 'text-yellow-600 dark:text-yellow-400',
     description: 'Стандартный контроль', 
     tooltip: 'Операции с умеренными отклонениями, требующие внимания',
     icon: Info,
@@ -109,11 +109,11 @@ export const PROBABILITY_DATA = [
     title: 'Низкая вероятность', 
     value: 25155, 
     percentage: 34.51,
-    colorClass: 'bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-200 cursor-pointer transition-all duration-200',
-    textColor: 'text-blue-700',
-    boldColor: 'text-blue-800',
-    descColor: 'text-blue-600',
-    iconColor: 'text-blue-600',
+    colorClass: 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 border-blue-200 dark:border-blue-700 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/40 dark:hover:to-blue-700/40 cursor-pointer transition-all duration-200',
+    textColor: 'text-blue-700 dark:text-blue-300',
+    boldColor: 'text-blue-800 dark:text-blue-200',
+    descColor: 'text-blue-600 dark:text-blue-400',
+    iconColor: 'text-blue-600 dark:text-blue-400',
     description: 'Нормальные операции', 
     tooltip: 'Операции с значительными отклонениями, требующие проверки',
     icon: CheckCircle,
@@ -130,11 +130,11 @@ export const ANOMALY_DATA = [
     title: 'Весовые аномалии', 
     value: 8734, 
     percentage: 11.98,
-    colorClass: 'bg-gradient-to-br from-red-50 to-red-100 border-red-200 hover:from-red-100 hover:to-red-200 cursor-pointer transition-all duration-200',
-    textColor: 'text-red-700',
-    boldColor: 'text-red-800',
-    descColor: 'text-red-600',
-    iconColor: 'text-red-600',
+    colorClass: 'bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/30 border-red-200 dark:border-red-700 hover:from-red-100 hover:to-red-200 dark:hover:from-red-800/40 dark:hover:to-red-700/40 cursor-pointer transition-all duration-200',
+    textColor: 'text-red-700 dark:text-red-300',
+    boldColor: 'text-red-800 dark:text-red-200',
+    descColor: 'text-red-600 dark:text-red-400',
+    iconColor: 'text-red-600 dark:text-red-400',
     description: 'Критические отклонения веса', 
     tooltip: 'Весовые аномалии - отклонения в весе груза между импортом и экспортом',
     icon: AlertTriangle,
@@ -148,11 +148,11 @@ export const ANOMALY_DATA = [
     title: 'Временные аномалии', 
     value: 12456, 
     percentage: 17.09,
-    colorClass: 'bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200 hover:from-orange-100 hover:to-orange-200 cursor-pointer transition-all duration-200',
-    textColor: 'text-orange-700',
-    boldColor: 'text-orange-800',
-    descColor: 'text-orange-600',
-    iconColor: 'text-orange-600',
+    colorClass: 'bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30 border-orange-200 dark:border-orange-700 hover:from-orange-100 hover:to-orange-200 dark:hover:from-orange-800/40 dark:hover:to-orange-700/40 cursor-pointer transition-all duration-200',
+    textColor: 'text-orange-700 dark:text-orange-300',
+    boldColor: 'text-orange-800 dark:text-orange-200',
+    descColor: 'text-orange-600 dark:text-orange-400',
+    iconColor: 'text-orange-600 dark:text-orange-400',
     description: 'Нарушения временных интервалов', 
     tooltip: 'Временные аномалии - нестандартные временные интервалы между операциями',
     icon: Clock,
@@ -166,11 +166,11 @@ export const ANOMALY_DATA = [
     title: 'Маршрутные аномалии', 
     value: 6892, 
     percentage: 9.46,
-    colorClass: 'bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200 hover:from-yellow-100 hover:to-yellow-200 cursor-pointer transition-all duration-200',
-    textColor: 'text-yellow-700',
-    boldColor: 'text-yellow-800',
-    descColor: 'text-yellow-600',
-    iconColor: 'text-yellow-600',
+    colorClass: 'bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900/30 dark:to-yellow-800/30 border-yellow-200 dark:border-yellow-700 hover:from-yellow-100 hover:to-yellow-200 dark:hover:from-yellow-800/40 dark:hover:to-yellow-700/40 cursor-pointer transition-all duration-200',
+    textColor: 'text-yellow-700 dark:text-yellow-300',
+    boldColor: 'text-yellow-800 dark:text-yellow-200',
+    descColor: 'text-yellow-600 dark:text-yellow-400',
+    iconColor: 'text-yellow-600 dark:text-yellow-400',
     description: 'Отклонения от плановых маршрутов', 
     tooltip: 'Маршрутные аномалии - отклонения в логике маршрута или станций',
     icon: Route,
@@ -184,11 +184,11 @@ export const ANOMALY_DATA = [
     title: 'Дубликаты операций', 
     value: 4612, 
     percentage: 6.33,
-    colorClass: 'bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:from-blue-100 hover:to-blue-200 cursor-pointer transition-all duration-200',
-    textColor: 'text-blue-700',
-    boldColor: 'text-blue-800',
-    descColor: 'text-blue-600',
-    iconColor: 'text-blue-600',
+    colorClass: 'bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 border-blue-200 dark:border-blue-700 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/40 dark:hover:to-blue-700/40 cursor-pointer transition-all duration-200',
+    textColor: 'text-blue-700 dark:text-blue-300',
+    boldColor: 'text-blue-800 dark:text-blue-200',
+    descColor: 'text-blue-600 dark:text-blue-400',
+    iconColor: 'text-blue-600 dark:text-blue-400',
     description: 'Повторяющиеся записи', 
     tooltip: 'Дубликаты операций - обнаружены повторяющиеся или схожие операции',
     icon: Copy,
@@ -206,7 +206,7 @@ export const CRITICAL_ANOMALIES = [
     type: 'weight',
     severity: 'critical',
     title: 'Критическое отклонение веса',
-    description: 'Обнаружено критическое отклонение веса груза на 847% от заявленного. Операция требует немедленной проверки.',
+    description: 'Компания "КазТрансЛогистик" ТОО: обнаружено критическое отклонение веса груза на 847% от заявленного. Операция требует немедленной проверки.',
     details: {
       operationId: 'TR-2024-089453',
       timestamp: new Date(Date.now() - 32 * 60 * 1000).toISOString(),
@@ -214,7 +214,9 @@ export const CRITICAL_ANOMALIES = [
       actualWeight: 118375,
       deviation: 847.0,
       station: 'Алматы-1',
-      cargoType: 'Металлопродукция'
+      cargoType: 'Металлопродукция',
+      company: 'КазТрансЛогистик ТОО',
+      cost: '4 567 000 тг'
     }
   },
   {
@@ -222,7 +224,7 @@ export const CRITICAL_ANOMALIES = [
     type: 'time',
     severity: 'high',
     title: 'Аномальная задержка транзита',
-    description: 'Груз находится в транзите 18 дней при плановом времени 3 дня. Возможна потеря груза.',
+    description: 'Компания "АстанаГрузПеревозки" ТОО: груз находится в транзите 18 дней при плановом времени 3 дня. Возможна потеря груза.',
     details: {
       operationId: 'TR-2024-089401',
       timestamp: new Date(Date.now() - 1.2 * 60 * 60 * 1000).toISOString(),
@@ -230,7 +232,9 @@ export const CRITICAL_ANOMALIES = [
       actualDays: 18,
       lastStation: 'Шымкент',
       destination: 'Ташкент',
-      cargoType: 'Продовольственные товары'
+      cargoType: 'Продовольственные товары',
+      company: 'АстанаГрузПеревозки ТОО',
+      cost: '2 340 000 тг'
     }
   },
   {
@@ -238,14 +242,16 @@ export const CRITICAL_ANOMALIES = [
     type: 'route',
     severity: 'high',
     title: 'Отклонение от маршрута',
-    description: 'Груз проследовал через неавторизованную станцию. Нарушение плана перевозки.',
+    description: 'Компания "АлматыТрейдинг" ТОО: груз проследовал через неавторизованную станцию. Нарушение плана перевозки.',
     details: {
       operationId: 'TR-2024-089378',
       timestamp: new Date(Date.now() - 2.5 * 60 * 60 * 1000).toISOString(),
       plannedRoute: 'Алматы → Шымкент → Ташкент',
       actualRoute: 'Алматы → Туркестан → Шымкент → Ташкент',
       unauthorizedStation: 'Туркестан',
-      cargoType: 'Химическая продукция'
+      cargoType: 'Химическая продукция',
+      company: 'АлматыТрейдинг ТОО',
+      cost: '3 890 000 тг'
     }
   },
   {
@@ -253,14 +259,16 @@ export const CRITICAL_ANOMALIES = [
     type: 'duplicate',
     severity: 'medium',
     title: 'Возможный дубликат записи',
-    description: 'Обнаружена операция с идентичными параметрами, выполненная 2 часа назад.',
+    description: 'Компания "ШымкентЛогистика" ТОО: обнаружена операция с идентичными параметрами, выполненная 2 часа назад.',
     details: {
       operationId: 'TR-2024-089455',
       timestamp: new Date(Date.now() - 45 * 60 * 1000).toISOString(),
       duplicateId: 'TR-2024-089443',
       similarity: 98.7,
       matchingFields: ['weight', 'cargoType', 'route', 'sender'],
-      cargoType: 'Зерновые культуры'
+      cargoType: 'Зерновые культуры',
+      company: 'ШымкентЛогистика ТОО',
+      cost: '1 567 000 тг'
     }
   },
   {
@@ -268,7 +276,7 @@ export const CRITICAL_ANOMALIES = [
     type: 'weight',
     severity: 'medium',
     title: 'Подозрительное изменение веса',
-    description: 'Вес груза изменился на 15% между станциями без объективных причин.',
+    description: 'Компания "АктобеКарго" ТОО: вес груза изменился на 15% между станциями без объективных причин.',
     details: {
       operationId: 'TR-2024-089429',
       timestamp: new Date(Date.now() - 3.7 * 60 * 60 * 1000).toISOString(),
@@ -276,7 +284,9 @@ export const CRITICAL_ANOMALIES = [
       currentWeight: 21320,
       deviation: -14.0,
       station: 'Отрар',
-      cargoType: 'Строительные материалы'
+      cargoType: 'Строительные материалы',
+      company: 'АктобеКарго ТОО',
+      cost: '987 000 тг'
     }
   }
 ];
@@ -461,21 +471,22 @@ export const ANALYTICS_DATA = {
     totalCountries: 9,
     activeRoutes: 47,
     busyRoutes: [
-      { from: 'Алматы', to: 'Ташкент', operations: 12456, percentage: 17.1 },
-      { from: 'Шымкент', to: 'Самарканд', operations: 9876, percentage: 13.5 },
-      { from: 'Нур-Султан', to: 'Москва', operations: 8765, percentage: 12.0 },
-      { from: 'Актобе', to: 'Урумчи', operations: 7654, percentage: 10.5 },
-      { from: 'Бишкек', to: 'Душанбе', operations: 6543, percentage: 9.0 }
+      { from: 'Алматы', to: 'Ташкент', operations: 12456, percentage: 17.1, revenue: '45 670 000 тг' },
+      { from: 'Шымкент', to: 'Самарканд', operations: 9876, percentage: 13.5, revenue: '34 230 000 тг' },
+      { from: 'Нур-Султан', to: 'Урумчи', operations: 8765, percentage: 12.0, revenue: '52 340 000 тг' },
+      { from: 'Актобе', to: 'Бишкек', operations: 7654, percentage: 10.5, revenue: '28 900 000 тг' },
+      { from: 'Шымкент', to: 'Душанбе', operations: 6543, percentage: 9.0, revenue: '23 450 000 тг' }
     ]
   },
   
   // Финансовые показатели
   financial: {
     totalRevenue: 145780000, // в тенге
-    averageOperationCost: 89500,
+    averageOperationCost: 89500, // в тенге
     profitMargin: 23.7,
     costEfficiency: 91.3,
-    monthlyGrowth: 12.8
+    monthlyGrowth: 12.8,
+    currency: 'тг'
   },
   
   // Операционные показатели
@@ -618,7 +629,9 @@ export const SAMPLE_USERS = [
     role: 'admin',
     avatar: null,
     lastLogin: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
-    isActive: true
+    isActive: true,
+    company: 'Казахстанские железные дороги',
+    position: 'Главный аналитик системы'
   },
   {
     id: 'user_002', 
@@ -627,7 +640,20 @@ export const SAMPLE_USERS = [
     role: 'analyst',
     avatar: null,
     lastLogin: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
-    isActive: true
+    isActive: true,
+    company: 'КТЖ-Грузовые перевозки',
+    position: 'Ведущий аналитик'
+  },
+  {
+    id: 'user_003',
+    username: 'operator1',
+    name: 'Нурлан Сарсенов',
+    role: 'operator',
+    avatar: null,
+    lastLogin: new Date(Date.now() - 8 * 60 * 60 * 1000).toISOString(),
+    isActive: true,
+    company: 'КазТрансСервис',
+    position: 'Оператор мониторинга'
   }
 ];
 
@@ -652,6 +678,20 @@ export const FILTER_CONFIGS = {
   ]
 };
 
+// ===== КАЗАХСТАНСКИЕ КОМПАНИИ =====
+export const KAZAKHSTAN_COMPANIES = [
+  { id: 'ktl', name: 'КазТрансЛогистик ТОО', bin: '123456789012', operationsCount: 15674, totalValue: '234 567 000 тг' },
+  { id: 'agp', name: 'АстанаГрузПеревозки ТОО', bin: '234567890123', operationsCount: 12893, totalValue: '189 234 000 тг' },
+  { id: 'at', name: 'АлматыТрейдинг ТОО', bin: '345678901234', operationsCount: 9876, totalValue: '156 789 000 тг' },
+  { id: 'sl', name: 'ШымкентЛогистика ТОО', bin: '456789012345', operationsCount: 8765, totalValue: '123 456 000 тг' },
+  { id: 'ak', name: 'АктобеКарго ТОО', bin: '567890123456', operationsCount: 7654, totalValue: '98 765 000 тг' },
+  { id: 'ke', name: 'КазЭкспресс ТОО', bin: '678901234567', operationsCount: 6543, totalValue: '87 654 000 тг' },
+  { id: 'ats', name: 'АлматыТрансСервис ТОО', bin: '789012345678', operationsCount: 5432, totalValue: '76 543 000 тг' },
+  { id: 'ngl', name: 'НурСултанГрузЛайн ТОО', bin: '890123456789', operationsCount: 4321, totalValue: '65 432 000 тг' },
+  { id: 'kts', name: 'КазТрансСервис ТОО', bin: '901234567890', operationsCount: 3210, totalValue: '54 321 000 тг' },
+  { id: 'akl', name: 'АктауКарго ТОО', bin: '012345678901', operationsCount: 2109, totalValue: '43 210 000 тг' }
+];
+
 // ===== ЭКСПОРТ ВСЕХ ДАННЫХ =====
 export const STATIC_DATA = {
   systemStats: SYSTEM_STATS,
@@ -670,16 +710,17 @@ export const STATIC_DATA = {
   systemNotifications: SYSTEM_NOTIFICATIONS,
   userRoles: USER_ROLES,
   sampleUsers: SAMPLE_USERS,
-  filterConfigs: FILTER_CONFIGS
+  filterConfigs: FILTER_CONFIGS,
+  kazakhstanCompanies: KAZAKHSTAN_COMPANIES
 };
 
-// ===== КОНСТАНТЫ =====
 export const APP_CONSTANTS = {
-  APP_NAME: 'Hide Tranzit',
+  APP_NAME: 'Gray Tranzit',
   VERSION: '2.0.0',
   DEFAULT_THEME: 'light',
   DEFAULT_LANGUAGE: 'ru',
   CURRENCY: 'тг',
+  CURRENCY_FULL: 'Казахстанский тенге',
   DATE_FORMAT: 'DD.MM.YYYY',
   TIME_FORMAT: 'HH:mm',
   PAGINATION_SIZE: 50,
@@ -688,7 +729,9 @@ export const APP_CONSTANTS = {
   AUTO_REFRESH_INTERVAL: 5 * 60 * 1000, // 5 минут
   SESSION_TIMEOUT: 24 * 60 * 60 * 1000, // 24 часа
   API_TIMEOUT: 30000, // 30 секунд
-  WEBSOCKET_RECONNECT_INTERVAL: 5000 // 5 секунд
+  WEBSOCKET_RECONNECT_INTERVAL: 5000, // 5 секунд
+  MAIN_COUNTRIES: ['Казахстан', 'Узбекистан', 'Кыргызстан', 'Таджикистан', 'Китай'],
+  PRIMARY_ROUTES: ['Алматы-Ташкент', 'Шымкент-Самарканд', 'Нур-Султан-Урумчи', 'Актобе-Бишкек']
 };
 
 export default STATIC_DATA;

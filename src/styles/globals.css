@@ -243,10 +243,15 @@ html {
   background: var(--bg-gradient-dark, linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(31, 41, 55, 0.9) 50%, rgba(15, 23, 42, 0.95) 100%));
 }
 
-/* Принудительный белый фон для входа */
+/* Адаптивный фон для страницы входа */
 .login-background {
-  background: #ffffff !important;
-  min-height: 100vh !important;
+  background: var(--color-background);
+  min-height: 100vh;
+  transition: background 0.3s ease;
+}
+
+.dark .login-background {
+  background: var(--color-background);
 }
 
 /* Масштабирование для корректного отображения */

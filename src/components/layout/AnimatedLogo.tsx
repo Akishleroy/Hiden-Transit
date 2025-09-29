@@ -1,4 +1,4 @@
-// Анимированный логотип Hide Tranzit
+// Анимированный логотип Gray Tranzit
 
 import { motion } from 'motion/react';
 
@@ -130,7 +130,7 @@ export function AnimatedLogo({ size = 'md', showText = true }: AnimatedLogoProps
               />
             ))}
             
-            {/* Дым из ттгы */}
+            {/* Дым из трубы */}
             {[...Array(3)].map((_, i) => (
               <motion.circle
                 key={i}
@@ -206,7 +206,7 @@ export function AnimatedLogo({ size = 'md', showText = true }: AnimatedLogoProps
               backgroundSize: '200% 200%'
             }}
           >
-            Hide Tranzit
+            Gray Tranzit
           </motion.h2>
           <motion.p 
             className="text-xs text-gray-500 dark:text-gray-400"

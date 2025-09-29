@@ -101,7 +101,7 @@ export function Sidebar({ currentPath, onNavigate, isCollapsed = false }: Sideba
                     </div>
                   </motion.div>
                   
-                  {/* Текст Hide Tranzit */}
+                  {/* Текст Gray Tranzit */}
                   <motion.div 
                     className="flex-1 min-w-0"
                     initial={{ x: -10, opacity: 0 }}
@@ -114,7 +114,7 @@ export function Sidebar({ currentPath, onNavigate, isCollapsed = false }: Sideba
                     }}
                   >
                     <h2 className="text-lg font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
-                      Hide Tranzit
+                      Gray Tranzit
                     </h2>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                       Railway Analytics System
@@ -512,7 +512,7 @@ export function Sidebar({ currentPath, onNavigate, isCollapsed = false }: Sideba
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <Globe className="h-3 w-3 text-gray-400" />
-                        <span className="text-xs text-gray-500 dark:text-gray-400">Hide Tranzit</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">Gray Tranzit</span>
                       </div>
                       <span className="text-xs text-green-600 dark:text-green-400 font-medium">v2.4.1</span>
                     </div>

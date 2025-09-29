@@ -44,7 +44,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     if (username && password) {
-      toast.success('Добро пожаловать в Hide Tranzit! 🚄');
+      toast.success('Добро пожаловать в Gray Tranzit! 🚄');
       // Добавляем конфетти эффект при успешном входе
       setTimeout(() => {
         onLogin({ username, password });
@@ -93,9 +93,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 
   return (
     <div 
-      className="min-h-screen flex relative overflow-hidden" 
+      className="min-h-screen flex relative overflow-hidden bg-background" 
       style={{ 
-        background: '#ffffff',
         position: 'fixed',
         top: 0,
         left: 0,
@@ -104,8 +103,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         zIndex: 9999
       }}
     >
-      {/* Белый анимированный фон с яркими элементами */}
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none" style={{ background: '#ffffff' }}>
+      {/* Адаптивный анимированный фон с яркими элементами */}
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-background">
         {/* Яркие заметные анимированные элементы */}
         {animationParams.backgroundOrbs.map((params, i) => (
           <motion.div
@@ -262,11 +261,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <motion.h1 
-              className="text-4xl font-bold mb-4"
-              style={{ 
-                color: '#111827',
-                textShadow: '0 2px 4px rgba(0,0,0,0.1)' 
-              }}
+              className="text-4xl font-bold mb-4 text-foreground"
               animate={{
                 textShadow: [
                   '0 2px 4px rgba(59, 130, 246, 0.1)',
@@ -276,12 +271,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
               }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              🚄 Hide Tranzit
+              🚄 Gray Tranzit
             </motion.h1>
-            <h2 className="text-2xl mb-6 font-medium" style={{ color: '#1f2937' }}>
+            <h2 className="text-2xl mb-6 font-medium text-foreground">
               Мониторинг транзитных операций
             </h2>
-            <p className="text-lg mb-8" style={{ color: '#374151' }}>
+            <p className="text-lg mb-8 text-muted-foreground">
               Разработано АО "Транстелеком" для интеллектуального анализа железнодорожных перевозок Казахстана
             </p>
           </motion.div>
@@ -296,11 +291,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
             {systemStats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="p-4 rounded-lg backdrop-blur-sm border-2 border-gray-200"
-                style={{ 
-                  background: 'rgba(255, 255, 255, 0.9)',
-                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
-                }}
+                className="p-4 rounded-lg backdrop-blur-sm border-2 border dynamic-bg"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.8 + index * 0.1, duration: 0.4 }}
@@ -309,7 +300,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 <div className="flex items-center space-x-3">
                   <stat.icon className={cn("h-6 w-6", stat.color)} />
                   <div>
-                    <p className="text-sm font-medium" style={{ color: '#374151' }}>{stat.label}</p>
+                    <p className="text-sm font-medium text-muted-foreground">{stat.label}</p>
                     <p className={cn("text-xl font-bold", stat.color)}>{stat.value}</p>
                   </div>
                 </div>
@@ -381,8 +372,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 
           {/* Версия и статус */}
           <motion.div 
-            className="flex items-center space-x-4 text-sm font-medium"
-            style={{ color: '#4b5563' }}
+            className="flex items-center space-x-4 text-sm font-medium text-muted-foreground"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4, duration: 0.6 }}
@@ -410,9 +400,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <Card 
-          className="w-full max-w-md shadow-2xl border-2 border-gray-200 relative overflow-hidden" 
+          className="w-full max-w-md shadow-2xl border-2 border dynamic-bg relative overflow-hidden"
           style={{ 
-            background: 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(10px)',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.1)'
           }}
@@ -439,7 +428,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 <Lock className="h-6 w-6 text-blue-600" />
                 <span>Вход в систему</span>
               </CardTitle>
-              <p className="text-center mt-2 font-medium" style={{ color: '#374151' }}>
+              <p className="text-center mt-2 font-medium text-muted-foreground">
                 Введите свои учетные данные для доступа
               </p>
             </motion.div>
@@ -465,11 +454,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="Введите логин"
-                  className="h-12 bg-gray-50 border-2 border-gray-200 focus:border-blue-500 focus:bg-white transition-all duration-200"
-                  style={{ 
-                    backgroundColor: '#f9fafb',
-                    borderColor: '#e5e7eb'
-                  }}
+                  className="h-12 bg-input border-2 border focus:border-blue-500 transition-all duration-200"
                   disabled={isLoading}
                 />
               </div>
