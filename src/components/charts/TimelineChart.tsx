@@ -52,19 +52,33 @@ export function TimelineChart({ data, loading = false, className, mode = 'anomal
   const labels = mode === 'probability' ? probabilityLabels : anomalyLabels;
   
   // Генерируем данные для графика вероятностей
-  const probabilityData = data.map((item, index) => {
-    // Генерируем разные данные на основе даты для имитации ежедневных изменений
-    const dateHash = new Date(item.date).getTime();
-    const seed = dateHash % 1000;
-    
-    return {
-      ...item,
-      high_probability: Math.round(1200 + (seed % 300) + Math.sin(index) * 50),
-      elevated_probability: Math.round(5500 + (seed % 800) + Math.cos(index) * 200),
-      medium_probability: Math.round(11800 + (seed % 1200) + Math.sin(index * 1.5) * 300),
-      low_probability: Math.round(24000 + (seed % 2000) + Math.cos(index * 0.8) * 800)
-    };
-  });
+  const probabilityData = [
+  { date: "2025-06-01", high_probability: 12, elevated_probability: 4, medium_probability: 12, low_probability: 30 },
+  { date: "2025-06-02", high_probability: 2, elevated_probability: 0, medium_probability: 1, low_probability: 29 },
+  { date: "2025-06-03", high_probability: 8, elevated_probability: 2, medium_probability: 1, low_probability: 21 },
+  { date: "2025-06-04", high_probability: 15, elevated_probability: 2, medium_probability: 1, low_probability: 34 },
+  { date: "2025-06-05", high_probability: 8, elevated_probability: 0, medium_probability: 4, low_probability: 46 },
+  { date: "2025-06-06", high_probability: 20, elevated_probability: 0, medium_probability: 0, low_probability: 23 },
+  { date: "2025-06-07", high_probability: 23, elevated_probability: 0, medium_probability: 1, low_probability: 18 },
+  { date: "2025-06-08", high_probability: 10, elevated_probability: 0, medium_probability: 0, low_probability: 25 },
+  { date: "2025-06-09", high_probability: 8, elevated_probability: 0, medium_probability: 0, low_probability: 19 },
+  { date: "2025-06-10", high_probability: 5, elevated_probability: 0, medium_probability: 0, low_probability: 17 },
+  { date: "2025-06-11", high_probability: 9, elevated_probability: 0, medium_probability: 1, low_probability: 13 },
+  { date: "2025-06-12", high_probability: 11, elevated_probability: 0, medium_probability: 0, low_probability: 2 },
+  { date: "2025-06-13", high_probability: 7, elevated_probability: 2, medium_probability: 0, low_probability: 36 },
+  { date: "2025-06-14", high_probability: 10, elevated_probability: 0, medium_probability: 0, low_probability: 13 },
+  { date: "2025-06-15", high_probability: 0, elevated_probability: 0, medium_probability: 0, low_probability: 9 },
+  { date: "2025-06-16", high_probability: 3, elevated_probability: 0, medium_probability: 0, low_probability: 18 },
+  { date: "2025-06-17", high_probability: 13, elevated_probability: 0, medium_probability: 0, low_probability: 6 },
+  { date: "2025-06-18", high_probability: 29, elevated_probability: 0, medium_probability: 0, low_probability: 4 },
+  { date: "2025-06-19", high_probability: 1, elevated_probability: 0, medium_probability: 0, low_probability: 4 },
+  { date: "2025-06-20", high_probability: 4, elevated_probability: 0, medium_probability: 0, low_probability: 0 },
+  { date: "2025-06-21", high_probability: 1, elevated_probability: 0, medium_probability: 2, low_probability: 0 },
+  { date: "2025-06-22", high_probability: 10, elevated_probability: 0, medium_probability: 3, low_probability: 2 },
+  { date: "2025-06-23", high_probability: 13, elevated_probability: 0, medium_probability: 0, low_probability: 0 },
+  { date: "2025-06-24", high_probability: 29, elevated_probability: 0, medium_probability: 0, low_probability: 0 },
+  { date: "2025-06-25", high_probability: 4, elevated_probability: 0, medium_probability: 0, low_probability: 0 },
+];
   
   const chartData = mode === 'probability' ? probabilityData : data;
 

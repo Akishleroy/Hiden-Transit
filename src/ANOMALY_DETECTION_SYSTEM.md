@@ -85,7 +85,7 @@ risk_level: hasAnomalies ? riskLevels[Math.floor(Math.random() * 3) + 2] : riskL
 ```javascript
 total_records: 728904,
 probability_distribution: {
-  high: 109,336 (15%),     // Высокая вероятность
+  high: 3,832 (15%),     // Высокая вероятность
   elevated: 182,226 (25%), // Повышенная вероятность  
   medium: 255,117 (35%),   // Средняя вероятность
   low: 182,225 (25%)       // Низкая вероятность

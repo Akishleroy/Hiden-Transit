@@ -100,7 +100,7 @@ export const TransitTablePage: React.FC<TransitTablePageProps> = ({
   const [showStatistics, setShowStatistics] = useState(false);
   const [isImportModalOpen, setIsImportModalOpen] = useState(false);
   const [totalRecords, setTotalRecords] = useState(728904);
-  const [importedStats, setImportedStats] = useState({ high: 1347, elevated: 5892, medium: 12458, low: 25155 });
+  const [importedStats, setImportedStats] = useState({ high: 3832, elevated: 225, medium: 1799, low: 18406 });
   
   // Подписываемся на изменения данных
   useEffect(() => {
@@ -400,7 +400,7 @@ export const TransitTablePage: React.FC<TransitTablePageProps> = ({
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs text-gray-600 dark:text-gray-400">Всего записей</p>
-                  <p className="text-xl font-bold text-green-600">{totalRecords.toLocaleString('ru-RU')}</p>
+                  <p className="text-xl font-bold text-green-600">{"4 410 695"}</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">База знаний</p>
                 </div>
                 <TrendingUp className="h-6 w-6 text-green-600" />

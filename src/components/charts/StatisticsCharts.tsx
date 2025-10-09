@@ -55,6 +55,7 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const [lastMouseAngle, setLastMouseAngle] = useState(0);
 
+  
   // Данные для круговой диаграммы распределения вероятностей
   const probabilityData = [
     { name: 'Высокая', value: data.probability_distribution.high, color: '#ef4444', percentage: 0 },
@@ -229,7 +230,7 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
                   >
-                    {data.total_records.toLocaleString()}
+                    {("4 410 695")}
                   </motion.p>
                 </div>
                 <motion.div
@@ -258,14 +259,14 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Высокая вероятность</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Импорт</p>
                   <motion.p 
                     className="text-2xl font-bold text-red-600"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
                   >
-                    {data.probability_distribution.high.toLocaleString()}
+                    {"922,719"}
                   </motion.p>
                   <motion.p 
                     className="text-xs text-gray-500"
@@ -273,7 +274,7 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
                   >
-                    {((data.probability_distribution.high / data.total_records) * 100).toFixed(1)}%
+                    {"20"}%
                   </motion.p>
                 </div>
                 <TrendingUp className="h-8 w-8 text-green-600" />
@@ -298,14 +299,14 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Аномалии</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Экспорт</p>
                   <motion.p 
                     className="text-2xl font-bold text-orange-600"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
                   >
-                    {data.anomaly_stats.total_anomalies.toLocaleString()}
+                    {"779,112"}
                   </motion.p>
                   <motion.p 
                     className="text-xs text-gray-500"
@@ -313,7 +314,7 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
                   >
-                    {((data.anomaly_stats.total_anomalies / data.total_records) * 100).toFixed(1)}%
+                    {"17"}%
                   </motion.p>
                 </div>
                 <motion.div
@@ -323,7 +324,7 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
                   }}
                   transition={{ delay: 0.7, duration: 0.8 }}
                 >
-                  <AlertTriangle className="h-8 w-8 text-orange-600" />
+                  <TrendingDown className="h-8 w-8 text-red-600" />
                 </motion.div>
               </div>
             </CardContent>
@@ -352,7 +353,7 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
                   >
-                    {(data.anomaly_stats.by_risk.critical || 0).toLocaleString()}
+                    {"3832"}
                   </motion.p>
                   <motion.p 
                     className="text-xs text-gray-500"
@@ -370,8 +371,7 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
                   }}
                   transition={{ delay: 0.8, duration: 1, repeat: Infinity, repeatDelay: 2 }}
                 >
-                  <TrendingDown className="h-8 w-8 text-red-600" />
-                </motion.div>
+<AlertTriangle className="h-8 w-8 text-orange-600" />                </motion.div>
               </div>
             </CardContent>
           </Card>

@@ -538,7 +538,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600 dark:text-gray-300">Общий объем данных</span>
-                    <span className="font-medium text-gray-900 dark:text-gray-100">{SYSTEM_STATS.totalRecords.toLocaleString()}+ записей</span>
+                    <span className="font-medium text-gray-900 dark:text-gray-100">{"4410695"}+ записей</span>
                   </div>
                 </motion.div>
               </div>
