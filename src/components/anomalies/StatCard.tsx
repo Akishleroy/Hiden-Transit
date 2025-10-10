@@ -123,20 +123,6 @@ export function StatCard({
           <div className={cn('text-2xl font-bold', colorClass.text)}>
             <AnimatedNumber value={value} />
           </div>
-          
-          {changePercentage !== null && (
-            <div className="flex items-center space-x-2">
-              <Badge 
-                variant={isPositiveChange ? "destructive" : "default"}
-                className="text-xs"
-              >
-                {isPositiveChange ? '+' : ''}{changePercentage.toFixed(1)}%
-              </Badge>
-              <span className="text-xs text-gray-500">
-                за последние 30 дней
-              </span>
-            </div>
-          )}
         </div>
 
         {/* Мини-индикатор серьезности */}

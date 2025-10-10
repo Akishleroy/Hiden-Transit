@@ -524,7 +524,7 @@ export function Sidebar({ currentPath, onNavigate, isCollapsed = false }: Sideba
                     
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-400 dark:text-gray-500">База данных</span>
-                      <span className="text-xs text-purple-600 dark:text-purple-400 font-medium">728.9K записей</span>
+                      <span className="text-xs text-purple-600 dark:text-purple-400 font-medium">4.4M записей</span>
                     </div>
                   </div>
                 </div>

@@ -597,12 +597,13 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
                     transition={{ delay: 1.1 + index * 0.1 }}
 
                     onClick={() => {
-                      const anomalyMap: Record<string, string> = {
-                        'Вес': 'weight_anomaly',
-                        'Время': 'time_anomaly',
-                        'Маршрут': 'route_anomaly',
-                        'Дубликаты': 'duplicate_anomaly'
-                      };
+                      const anomalyData = [
+                      { name: 'Вес', count: 12 },
+                      { name: 'Время', count: 8 },
+                      { name: 'Маршрут', count: 5 },
+                      { name: 'Дубликаты', count: 3 },
+                    ];
+
                       onDataClick?.({
                         type: 'anomaly-type',
                         value: anomalyMap[item.name] || 'weight_anomaly'
@@ -755,74 +756,7 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
           </Card>
         </motion.div>
 
-        {/* Топ станций по эффективности */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-          whileHover={{ scale: 1.01 }}
-        >
-          <Card className="hover:shadow-lg transition-shadow duration-300">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Train className="h-5 w-5 text-green-600" />
-                <span>Топ станций по эффективности</span>
-                <Badge variant="outline" className="text-xs">
-                  Клик → Фильтр
-                </Badge>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ScrollArea className="h-64">
-                <div className="space-y-2">
-                  {topStationData
-                    .sort((a, b) => b.efficiency - a.efficiency)
-                    .slice(0, 6).map((item, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex items-center justify-between p-2 rounded cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 1.3 + index * 0.1 }}
-                      whileHover={{ scale: 1.02 }}
-                      onClick={() => {
-                        // Используем существующую систему фильтрации стран через название станции
-                        const countryCode = getCountryCodeByShortName(item.country);
-                        onDataClick?.({
-                          type: 'station-filter',
-                          value: item.name,
-                          additionalData: { 
-                            country: item.country,
-                            countryCode: countryCode
-                          }
-                        });
-                      }}
-                    >
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium truncate">{item.name}</p>
-                        <p className="text-xs text-gray-500">{item.country}</p>
-                      </div>
-                      <div className="text-right">
-                        <div className="flex items-center space-x-1">
-                          <span className="text-sm font-bold text-green-600">
-                            {item.efficiency}%
-                          </span>
-                          <div className={`w-2 h-2 rounded-full ${
-                            item.efficiency >= 98 ? 'bg-green-500' :
-                            item.efficiency >= 97 ? 'bg-yellow-500' :
-                            'bg-red-500'
-                          }`}></div>
-                        </div>
-                        <p className="text-xs text-gray-500">{item.operations.toLocaleString()} опер.</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </ScrollArea>
-            </CardContent>
-          </Card>
-        </motion.div>
-
+        
         {/* Топ стран по грузообороту */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

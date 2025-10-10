@@ -388,7 +388,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
                 </div>
               ) : criticalAnomalies.length > 0 ? (
                 <>
-                  {criticalAnomalies.slice(0, 8).map((anomaly) => {
+                  {criticalAnomalies.slice(0,4).map((anomaly) => {
                     const TypeIcon = getTypeIcon(anomaly.type);
                     return (
                       <div 
@@ -424,7 +424,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
                     );
                   })}
                   
-                  {criticalAnomalies.length > 8 && (
+                  {criticalAnomalies.length > 4 && (
                     <Button 
                       variant="ghost" 
                       className="w-full mt-4"

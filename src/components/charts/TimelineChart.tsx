@@ -171,12 +171,7 @@ export function TimelineChart({ data, loading = false, className, mode = 'anomal
               <Calendar className="h-4 w-4 text-gray-500" />
               <span className="text-sm text-gray-500">Последние 30 дней</span>
             </div>
-            <Badge 
-              variant={totalTrend > 0 ? "destructive" : "default"}
-              className="text-xs"
-            >
-              {totalTrend > 0 ? '+' : ''}{totalTrend.toFixed(1)}%
-            </Badge>
+            
           </div>
         </div>
       </CardHeader>
