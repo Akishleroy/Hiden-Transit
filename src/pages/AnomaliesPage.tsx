@@ -368,7 +368,7 @@ export function AnomaliesPage() {
             </div>
 
             {/* Фильтр по типу */}
-            <Select value={filters.type} onValueChange={(value) => setFilters({ type: value as any })}>
+            <Select value={filters.type} onValueChange={(value:any) => setFilters({ type: value as any })}>
               <SelectTrigger>
                 <SelectValue placeholder="Тип аномалии" />
               </SelectTrigger>
@@ -382,7 +382,7 @@ export function AnomaliesPage() {
             </Select>
 
             {/* Фильтр по серьезности */}
-            <Select value={filters.severity} onValueChange={(value) => setFilters({ severity: value as any })}>
+            <Select value={filters.severity} onValueChange={(value:any) => setFilters({ severity: value as any })}>
               <SelectTrigger>
                 <SelectValue placeholder="Серьезность" />
               </SelectTrigger>
@@ -396,7 +396,7 @@ export function AnomaliesPage() {
             </Select>
 
             {/* Фильтр по периоду */}
-            <Select value={filters.dateRange} onValueChange={(value) => setFilters({ dateRange: value })}>
+            <Select value={filters.dateRange} onValueChange={(value:any) => setFilters({ dateRange: value })}>
               <SelectTrigger>
                 <SelectValue placeholder="Период" />
               </SelectTrigger>

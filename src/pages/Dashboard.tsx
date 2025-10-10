@@ -305,7 +305,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ delay: 0.2 + index * 0.1 }}
             >
-              <Tooltip delayDuration={100} skipDelayDuration={0}>
+                <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
                   <div>
                     <Card 
