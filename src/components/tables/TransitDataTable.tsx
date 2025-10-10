@@ -1,3 +1,6 @@
+
+// Импортируем реальные данные из отдельного файла
+import { HIGH_PROBABILITY_DATA, MEDIUM_PROBABILITY_DATA, LOW_PROBABILITY_DATA, ELEVATED_PROBABILITY_DATA } from '../../data/realTransitRecords';
 // Упрощенная таблица транзитных данных без Tooltip
 
 import React, { useState, useEffect } from 'react';
@@ -11,6 +14,7 @@ import {
   TableRow,
 } from '../ui/table';
 import { Button } from '../ui/button';
+
 import { Input } from '../ui/input';
 import { Badge } from '../ui/badge';
 import { Card, CardContent } from '../ui/card';
@@ -90,7 +94,7 @@ export const TransitDataTable: React.FC<TransitDataTableProps> = ({
 
 
   // Конвертация ImportedRecord в TransitRecord
-  const convertImportedToTransitRecord = (record: ImportedRecord, index: number): TransitRecord => {
+  const convertImportedToTransitRecord = (record: ImportedRecord, index: number): TransitRecord | undefined => {
     let probability_category = '';
     switch (record.anomaly_probability) {
       case 'high':
@@ -109,96 +113,71 @@ export const TransitDataTable: React.FC<TransitDataTableProps> = ({
         probability_category = 'Низкая вероятность';
     }
 
-    const anomalies = (record.anomaly_types || []).map(type => ({
-      type: type.includes('_') ? type : `${type}_anomaly`,
-      severity: 'medium' as const,
-      description: `Обнаружена аномалия типа ${type}`,
-      explanation: `Подробное объяснение аномалии ${type}`,
-      confidence: Math.random() * 0.4 + 0.6
-    }));
-
-    let risk_level = 'Минимальный';
-    if (anomalies.length > 3) risk_level = 'Критический';
-    else if (anomalies.length > 2) risk_level = 'Высокий';
-    else if (anomalies.length > 1) risk_level = 'Средний';
-    else if (anomalies.length > 0) risk_level = 'Низкий';
-
-    // Функция для генерации БИН кода
-    const generateBIN = () => {
-      const digits = Array.from({length: 12}, () => Math.floor(Math.random() * 10));
-      return digits.join('');
-    };
-
-    return {
-      id_import: Number(record.id?.replace(/[^0-9]/g, '')) || (1000000 + index),
-      id_export: Number(record.id?.replace(/[^0-9]/g, '')) + 1000000 || (2000000 + index),
-      nomer_vagona: record.wagon_container_number || `${Math.floor(Math.random() * 9000) + 1000}${Math.floor(Math.random() * 9000) + 1000}`,
-      strana_otpr_import: record.departure_country_code || 'RU',
-      strana_nazn_export: record.destination_country_code || 'KZ',
-      stancia_otpr: record.departure_station_name || 'Москва-Сорт',
-      stancia_pereaddr: record.departure_station_name || 'Промежуточная',
-      stancia_nazn: record.destination_station_name || 'Алматы-I',
-      data_prib_import: record.arrival_date || new Date().toISOString().split('T')[0],
-      data_otpr_export: record.departure_date || new Date().toISOString().split('T')[0],
-      ves_import: record.total_weight || Math.floor(Math.random() * 50000) + 1000,
-      ves_export: record.wagon_weight || record.total_weight || Math.floor(Math.random() * 50000) + 1000,
-      naimenovanie_gruza: record.cargo_name || 'Груз',
-      gruzopoluchatel_bin: generateBIN(),
-      gruzootpravitel_bin: generateBIN(),
-      probability_category,
-      anomalies,
-      risk_level,
-      recommendations: anomalies.length > 0 ? [
-        'Требуется дополнительная проверка документов',
-        'Рекомендуется физический осмотр груза',
-        'Уведомить службу безопасности'
-      ] : []
-    } as TransitRecord;
+    // Для каждой категории вероятности возвращаем данные из соответствующего массива
+    if (probability_category === 'Высокая вероятность' && HIGH_PROBABILITY_DATA.length > 0) {
+      return HIGH_PROBABILITY_DATA[index % HIGH_PROBABILITY_DATA.length];
+    }
+    if (probability_category === 'Повышенная вероятность' && ELEVATED_PROBABILITY_DATA.length > 0) {
+      return ELEVATED_PROBABILITY_DATA[index % ELEVATED_PROBABILITY_DATA.length];
+    }
+    if (probability_category === 'Средняя вероятность' && MEDIUM_PROBABILITY_DATA.length > 0) {
+      return MEDIUM_PROBABILITY_DATA[index % MEDIUM_PROBABILITY_DATA.length];
+    }
+    if (probability_category === 'Низкая вероятность' && LOW_PROBABILITY_DATA.length > 0) {
+      return LOW_PROBABILITY_DATA[index % LOW_PROBABILITY_DATA.length];
+    }
+    // Если нет реальных данных — ничего не возвращаем
+    return undefined;
   };
 
   // Загрузка данных
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
-      
       try {
         const importedData = dataService.getAllData();
-        
         let dataToUse: TransitRecord[] = [];
-        
         if (importedData.length > 0) {
-          dataToUse = importedData.map((record: ImportedRecord, index: number) => 
-            convertImportedToTransitRecord(record, index)
-          );
+          dataToUse = importedData
+            .map((record: ImportedRecord, index: number) => convertImportedToTransitRecord(record, index))
+            .filter(Boolean) as TransitRecord[];
         } else {
-          dataToUse = generateMockTransitRecords(1000);
+          dataToUse = [];
         }
-        
+
         // Применяем фильтры и поиск
         let filtered = [...dataToUse];
-        
-        // Применение фильтров по вероятности
+
+        // Если фильтр "Высокая вероятность" активен — показываем только реальные данные
         if (filters?.probability_filter) {
-          const activeProbabilities = Object.entries(filters.probability_filter)
-            .filter(([_, active]) => active)
-            .map(([key, _]) => {
-              switch (key) {
-                case 'high': return 'Высокая вероятность';
-                case 'elevated': return 'Повышенная вероятность';
-                case 'medium': return 'Средняя вероятность';
-                case 'low': return 'Низкая вероятность';
-                default: return '';
-              }
-            });
-          
-          console.log('Фильтры вероятности:', activeProbabilities);
-          
-          if (activeProbabilities.length > 0) {
-            const beforeFilter = filtered.length;
-            filtered = filtered.filter(record => 
-              activeProbabilities.includes(record.probability_category)
-            );
-            console.log(`Фильтрация по вероятности: было ${beforeFilter}, стало ${filtered.length}`);
+  const { high, elevated, medium, low } = filters.probability_filter;
+
+  if (high) {
+    filtered = [...HIGH_PROBABILITY_DATA];
+  } else if (elevated) {
+    filtered = [...ELEVATED_PROBABILITY_DATA];
+  } else if (medium) {
+    filtered = [...MEDIUM_PROBABILITY_DATA];
+  } else if (low) {
+    filtered = [...LOW_PROBABILITY_DATA];
+  } else {
+    // Если выбрано несколько или ни одного — применяем стандартную фильтрацию
+    const activeProbabilities = Object.entries(filters.probability_filter)
+      .filter(([_, active]) => active)
+      .map(([key, _]) => {
+        switch (key) {
+          case 'high': return 'Высокая вероятность';
+          case 'elevated': return 'Повышенная вероятность';
+          case 'medium': return 'Средняя вероятность';
+          case 'low': return 'Низкая вероятность';
+          default: return '';
+        }
+      });
+    if (activeProbabilities.length > 0) {
+      filtered = filtered.filter(record =>
+        activeProbabilities.includes(record.probability_category)
+      );
+            }
           }
         }
 
@@ -483,7 +462,7 @@ export const TransitDataTable: React.FC<TransitDataTableProps> = ({
           <TableHeader>
             <TableRow>
               <TableHead 
-                className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800"
+                className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 px-0 py-0"
                 onClick={() => handleSort('id_import')}
               >
                 <div className="flex items-center space-x-1">
@@ -703,38 +682,38 @@ export const TransitDataTable: React.FC<TransitDataTableProps> = ({
                 )}
                 onClick={() => handleRecordClick(record)}
               >
-                <TableCell>{formatRecordId(record.id_import)}</TableCell>
-                <TableCell>{formatRecordId(record.id_export)}</TableCell>
-                <TableCell>{formatWagonNumber(record.nomer_vagona)}</TableCell>
-                <TableCell>
-                  <span className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">
+                <TableCell className="px-0 py-0">{formatRecordId(record.id_import)}</TableCell>
+                <TableCell className="px-0 py-0">{formatRecordId(record.id_export)}</TableCell>
+                <TableCell className="px-0 py-0">{formatWagonNumber(record.nomer_vagona)}</TableCell>
+                <TableCell className="px-0 py-0">
+                  <span className="text-xs px-2 py-0 rounded bg-gray-100 dark:bg-gray-800">
                     {getCountryDisplayName(record.strana_otpr_import)}
                   </span>
                 </TableCell>
-                <TableCell>
-                  <span className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-800">
+                <TableCell className="px-0 py-0">
+                  <span className="text-xs px-2 py-0 rounded bg-gray-100 dark:bg-gray-800">
                     {getCountryDisplayName(record.strana_nazn_export)}
                   </span>
                 </TableCell>
-                <TableCell>{record.stancia_otpr}</TableCell>
-                <TableCell>{record.stancia_pereaddr}</TableCell>
-                <TableCell>{record.stancia_nazn}</TableCell>
-                <TableCell>{formatDate(record.data_prib_import)}</TableCell>
-                <TableCell>{formatDate(record.data_otpr_export)}</TableCell>
-                <TableCell>{formatWeight(record.ves_import)}</TableCell>
-                <TableCell>{formatWeight(record.ves_export)}</TableCell>
-                <TableCell>{record.naimenovanie_gruza}</TableCell>
-                <TableCell>
-                  <span className="text-xs px-2 py-1 rounded bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+                <TableCell className="px-0 py-0">{record.stancia_otpr}</TableCell>
+                <TableCell className="px-0 py-0">{record.stancia_pereaddr}</TableCell>
+                <TableCell className="px-0 py-0">{record.stancia_nazn}</TableCell>
+                <TableCell className="px-0 py-0">{formatDate(record.data_prib_import)}</TableCell>
+                <TableCell className="px-0 py-0">{formatDate(record.data_otpr_export)}</TableCell>
+                <TableCell className="px-0 py-0">{formatWeight(record.ves_import)}</TableCell>
+                <TableCell className="px-0 py-0">{formatWeight(record.ves_export)}</TableCell>
+                <TableCell className="px-0 py-0">{record.naimenovanie_gruza}</TableCell>
+                <TableCell className="px-0 py-0">
+                  <span className="text-xs px-2 py-0 rounded bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
                     {record.gruzopoluchatel_bin || 'Н/Д'}
                   </span>
                 </TableCell>
-                <TableCell>
-                  <span className="text-xs px-2 py-1 rounded bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">
+                <TableCell className="px-0 py-0">
+                  <span className="text-xs px-2 py-0 rounded bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200">
                     {record.gruzootpravitel_bin || 'Н/Д'}
                   </span>
                 </TableCell>
-                <TableCell>
+                <TableCell className="px-0 py-0">
                   <Badge 
                     className={getProbabilityCategoryClass(record.probability_category)}
                     title={getProbabilityTooltip(record.probability_category)}
@@ -742,7 +721,7 @@ export const TransitDataTable: React.FC<TransitDataTableProps> = ({
                     {record.probability_category}
                   </Badge>
                 </TableCell>
-                <TableCell>
+                <TableCell className="px-0 py-0">
                   {record.anomalies.length > 0 ? (
                     <div 
                       className="flex space-x-1"

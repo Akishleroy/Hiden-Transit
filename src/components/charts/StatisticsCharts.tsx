@@ -57,16 +57,12 @@ export const StatisticsCharts: React.FC<StatisticsChartsProps> = ({
 
   
   // Данные для круговой диаграммы распределения вероятностей
-  const probabilityData = [
-    { name: 'Высокая', value: data.probability_distribution.high, color: '#ef4444', percentage: 0 },
-    { name: 'Повышенная', value: data.probability_distribution.elevated, color: '#f97316', percentage: 0 },
-    { name: 'Средняя', value: data.probability_distribution.medium, color: '#eab308', percentage: 0 },
-    { name: 'Низкая', value: data.probability_distribution.low, color: '#22c55e', percentage: 0 }
-  ].map(item => ({
-    ...item,
-    percentage: ((item.value / data.total_records) * 100).toFixed(1)
-  }));
-
+ const probabilityData = [
+  { name: 'Высокая', value: 16, color: '#ef4444', percentage: 50 },
+  { name: 'Повышенная', value: 1, color: '#f97316', percentage: 25 },
+  { name: 'Средняя', value: 7, color: '#eab308', percentage: 15 },
+  { name: 'Низкая', value: 76, color: '#22c55e', percentage: 10 },
+];
   // Данные для столбчатой диаграммы аномалий
   const anomalyData = Object.entries(data.anomaly_stats.by_type).map(([type, count]) => ({
     name: type === 'weight_anomaly' ? 'Вес' : 

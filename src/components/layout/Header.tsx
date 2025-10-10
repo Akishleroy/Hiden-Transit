@@ -11,6 +11,7 @@ import { ThemeBackgroundController } from '../ui/theme-background-controller';
 import { BackgroundSelector } from './BackgroundSelector';
 import { NotificationPanel } from './NotificationPanel';
 import { ProfilePanel } from './ProfilePanel';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -64,46 +65,30 @@ export function Header({ backgroundVariant = 'orbs', onBackgroundChange, user, o
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-3">
             <motion.div 
-              className="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-lg"
-              whileHover={{ scale: 1.05 }}
-              animate={{ 
-                boxShadow: [
-                  "0 0 10px rgba(16, 185, 129, 0.3)",
-                  "0 0 20px rgba(16, 185, 129, 0.5)", 
-                  "0 0 10px rgba(16, 185, 129, 0.3)"
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <Shield className="w-4 h-4 text-white" />
-            </motion.div>
+  className="flex items-center justify-center w-8 h-8 rounded-lg overflow-hidden"
+  whileHover={{ scale: 1.05 }}
+  animate={{ 
+    boxShadow: [
+      "0 0 10px rgba(16, 185, 129, 0.3)",
+      "0 0 20px rgba(16, 185, 129, 0.5)", 
+      "0 0 10px rgba(16, 185, 129, 0.3)"
+    ]
+  }}
+  transition={{ duration: 2, repeat: Infinity }}
+>
+  <img 
+    src="/logottc.jpg" 
+    alt="Логотип TTC" 
+  className="w-20 h-20 object-contain"
+  />
+</motion.div>
             <div className="flex flex-col">
-              <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Система мониторинга</span>
               <div className="flex items-center space-x-2">
                 <motion.div 
                   className="w-2 h-2 bg-emerald-500 rounded-full"
                   animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-                <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Активна • 728,904+ записей</span>
-              </div>
-            </div>
-          </div>
-          
-          {/* Индикаторы производительности */}
-          <div className="flex items-center space-x-4 ml-8">
-            <div className="flex items-center space-x-2">
-              <Activity className="w-4 h-4 text-blue-500" />
-              <div className="text-xs">
-                <span className="text-gray-500 dark:text-gray-400">Загрузка:</span>
-                <span className="ml-1 font-medium text-blue-600 dark:text-blue-400">12%</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Zap className="w-4 h-4 text-amber-500" />
-              <div className="text-xs">
-                <span className="text-gray-500 dark:text-gray-400">Скорость:</span>
-                <span className="ml-1 font-medium text-amber-600 dark:text-amber-400">3.2ms</span>
               </div>
             </div>
           </div>
@@ -111,28 +96,7 @@ export function Header({ backgroundVariant = 'orbs', onBackgroundChange, user, o
 
         {/* Правая часть - Действия и профиль */}
         <div className="flex items-center space-x-2">
-          {/* Контроллер фона темы */}
-          <ThemeBackgroundController />
-          
-          {/* Селектор анимированного фона */}
-          {onBackgroundChange && (
-            <BackgroundSelector 
-              currentVariant={backgroundVariant}
-              onVariantChange={onBackgroundChange}
-            />
-          )}
-          
-          {/* Переключатель темы */}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={cycleTheme}
-              className="relative h-9 w-9 rounded-full"
-            >
-              <ThemeIcon className="h-4 w-4" />
-            </Button>
-          </motion.div>
+          {/* ...удалено: контроллер фона и переключатель темы... */}
 
           {/* Уведомления */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

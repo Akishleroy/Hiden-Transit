@@ -206,7 +206,7 @@ export function AnimatedLogo({ size = 'md', showText = true }: AnimatedLogoProps
               backgroundSize: '200% 200%'
             }}
           >
-            Gray Tranzit
+            Система мониторинга транзита
           </motion.h2>
           <motion.p 
             className="text-xs text-gray-500 dark:text-gray-400"

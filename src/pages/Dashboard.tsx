@@ -352,7 +352,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
         
 
         {/* Основной контент */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* График динамики */}
           <div className="xl:col-span-2">
             <TimelineChart 
@@ -362,8 +362,10 @@ export function Dashboard({ onNavigate }: DashboardProps) {
               mode={viewMode}
             />
           </div>
+        </div>
 
-          {/* Критические аномалии */}
+        {/* Критические аномалии ниже статистики */}
+        <div className="mt-6">
           <Card className="h-fit">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
               <CardTitle className="flex items-center space-x-2">

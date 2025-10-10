@@ -129,9 +129,6 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
     { id: 'companies', label: 'Компании', icon: Building2, description: 'Топ компаний по риску' },
     { id: 'reports', label: 'Отчеты', icon: FileText, description: 'Генерация отчетов' },
     { id: 'finance', label: 'Финансы', icon: DollarSign, description: 'Финансовые показатели' },
-    { id: 'forecast', label: 'Прогнозы', icon: Target, description: 'Прогнозы и рекомендации' },
-    { id: 'ai-stats', label: 'AI Статистика', icon: Brain, description: 'Статистика ИИ системы' },
-    { id: 'performance', label: 'Производительность', icon: Activity, description: 'Мониторинг системы' }
   ];
 
   // Данные для компаний
@@ -505,89 +502,56 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                 </Card>
 
                 {/* Список компаний */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <Building2 className="h-5 w-5" />
-                        <span>Компании по вероятности аномалий</span>
-                      </div>
-                      <Badge variant="outline">{filteredCompanies.length} компаний</Badge>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      {filteredCompanies.map((company, index) => (
-                        <div 
-                          key={index} 
-                          className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
-                          onClick={() => handleAnalyticsClick({
-                            type: 'probability-category',
-                            value: company.probability,
-                            additionalData: { company: company.name, city: company.city }
-                          })}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="flex-1">
-                              <div className="flex items-center space-x-3">
-                                <h3 className="font-medium text-gray-900">{company.name}</h3>
-                                <Badge className={getProbabilityBadgeColor(company.probability)}>
-                                  {getProbabilityLabel(company.probability)}
-                                </Badge>
-                              </div>
-                              <div className="mt-2 grid grid-cols-2 md:grid-cols-6 gap-4 text-sm text-gray-600">
-                                <div className="flex items-center">
-                                  <MapPin className="h-4 w-4 mr-1" />
-                                  {company.city}
-                                </div>
-                                <div 
-                                  className="flex items-center hover:text-blue-600 cursor-pointer"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleAnalyticsClick({
-                                      type: 'top-operations',
-                                      value: company.operations,
-                                      additionalData: { company: company.name }
-                                    });
-                                  }}
-                                >
-                                  <Activity className="h-4 w-4 mr-1" />
-                                  {company.operations.toLocaleString()} операций
-                                </div>
-                                <div className="flex items-center">
-                                  <Percent className="h-4 w-4 mr-1" />
-                                  Вероятность: {company.probabilityScore}/10
-                                </div>
-                                <div 
-                                  className="flex items-center hover:text-red-600 cursor-pointer"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleAnalyticsClick({
-                                      type: 'anomaly-type',
-                                      value: 'weight_anomaly',
-                                      additionalData: { company: company.name }
-                                    });
-                                  }}
-                                >
-                                  <AlertTriangle className="h-4 w-4 mr-1" />
-                                  {company.issues} нарушений
-                                </div>
-                                <div className="flex items-center">
-                                  <DollarSign className="h-4 w-4 mr-1" />
-                                  {(company.revenue / 1000).toFixed(0)}K тг
-                                </div>
-                                <div className="flex items-center">
-                                  <Users className="h-4 w-4 mr-1" />
-                                  {company.employees} сотр.
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+<Card>
+  <CardHeader>
+    <CardTitle className="flex items-center justify-between">
+      <div className="flex items-center space-x-2">
+        <Building2 className="h-5 w-5" />
+        <span>Компании по вероятности аномалий</span>
+      </div>
+      <Badge variant="outline">{filteredCompanies.length} компаний</Badge>
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div className="space-y-4">
+      {filteredCompanies.map((company, index) => (
+        <div 
+          key={index} 
+          className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+          onClick={() => handleAnalyticsClick({
+            type: 'probability-category',
+            value: company.probability,
+            additionalData: { company: company.name }
+          })}
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex-1">
+              <div className="flex items-center space-x-3">
+                <h3 className="font-medium text-gray-900">{company.name}</h3>
+                <Badge className={getProbabilityBadgeColor(company.probability)}>
+                  {getProbabilityLabel(company.probability)}
+                </Badge>
+              </div>
+              <div className="mt-2 text-sm text-gray-600 flex items-center hover:text-blue-600 cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleAnalyticsClick({
+                    type: 'top-operations',
+                    value: company.operations,
+                    additionalData: { company: company.name }
+                  });
+                }}
+              >
+                <Activity className="h-4 w-4 mr-1" />
+                {company.operations.toLocaleString()} операций
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </CardContent>
+</Card>
               </div>
             </motion.div>
           )}
@@ -613,9 +577,9 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm text-gray-600">Всего вагонов</p>
+                          <p className="text-sm text-gray-600">Всего операций</p>
                           <p className="text-2xl font-bold text-gray-900">
-                            {"504,994"}
+                            {"4,410,695"}
                           </p>
                           <p className="text-xs text-gray-500">в системе</p>
                         </div>
@@ -636,7 +600,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                         <div>
                           <p className="text-sm text-gray-600">Под риском</p>
                           <p className="text-2xl font-bold text-red-600">
-                            {"3832"}
+                            {"24 262"}
                           </p>
                           <p className="text-xs text-gray-500">
                           </p>
@@ -652,7 +616,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm text-gray-600">Стоимость за вагон</p>
+                          <p className="text-sm text-gray-600">Потенциальная потеря за вагон</p>
                           <p className="text-2xl font-bold text-gray-900">
                             {"700,000"}
                           </p>
@@ -698,118 +662,10 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ onNavigateToTable,
                     </CardContent>
                   </Card>
 
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center space-x-2">
-                        <Shield className="h-5 w-5 text-green-600" />
-                        <span>Защита активов</span>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                          <span className="text-sm font-medium">Застрахованные вагоны</span>
-                          <Badge className="bg-green-100 text-green-800">
-                            {((financeData.safeWagons / financeData.totalWagons) * 100).toFixed(1)}%
-                          </Badge>
-                        </div>
-                        <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
-                          <span className="text-sm font-medium">Система мониторинга</span>
-                          <Badge className="bg-blue-100 text-blue-800">Активна</Badge>
-                        </div>
-                        <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
-                          <span className="text-sm font-medium">Резервный фонд</span>
-                          <Badge className="bg-yellow-100 text-yellow-800">45.2M тг</Badge>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  
                 </div>
 
                 {/* Дополнительная финансовая аналитика */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center space-x-2">
-                      <BarChart3 className="h-5 w-5 text-blue-600" />
-                      <span>Детализированная финансовая аналитика</span>
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <Card className="border-gray-200">
-                        <CardContent className="p-4">
-                          <h4 className="font-medium text-gray-900 mb-3">Ежемесячные расходы</h4>
-                          <div className="space-y-2 text-sm">
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Обслуживание системы</span>
-                              <span className="font-medium">2.3M тг</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Страхование</span>
-                              <span className="font-medium">1.8M тг</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Персонал</span>
-                              <span className="font-medium">4.2M тг</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">IT инфраструктура</span>
-                              <span className="font-medium">1.1M тг</span>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-
-                      <Card className="border-gray-200">
-                        <CardContent className="p-4">
-                          <h4 className="font-medium text-gray-900 mb-3">ROI от внедрения</h4>
-                          <div className="space-y-2 text-sm">
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Экономия за год</span>
-                              <span className="font-medium text-green-600">156.7M тг</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Вложения</span>
-                              <span className="font-medium text-red-600">45.2M тг</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">ROI</span>
-                              <span className="font-medium text-blue-600">247%</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Окупаемость</span>
-                              <span className="font-medium">3.4 мес</span>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-
-                      <Card className="border-gray-200">
-                        <CardContent className="p-4">
-                          <h4 className="font-medium text-gray-900 mb-3">Прогноз на год</h4>
-                          <div className="space-y-2 text-sm">
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Ожидаемые потери</span>
-                              <span className="font-medium text-orange-600">78.3M тг</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Предотвращенные</span>
-                              <span className="font-medium text-green-600">234.1M тг</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Эффективность</span>
-                              <span className="font-medium text-blue-600">75%</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Целевая экономия</span>
-                              <span className="font-medium">500M тг</span>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CardContent>
-                </Card>
               </div>
             </div>
           )}

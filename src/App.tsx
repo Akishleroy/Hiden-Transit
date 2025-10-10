@@ -134,11 +134,11 @@ export default function App() {
 
   const getCurrentPageTitle = () => {
     switch (currentPath) {
-      case '/': return 'Gray Tranzit - Главная';
-      case '/chat': return 'Gray Tranzit - AI Ассистент';
-      case '/analytics': return 'Gray Tranzit - Аналитика';
-      case '/transit-table': return 'Gray Tranzit - База знаний';
-      default: return 'Gray Tranzit';
+      case '/': return 'AI-Мониторинг транзита - Главная';
+      case '/chat': return 'AI-Мониторинг транзита - AI Ассистент';
+      case '/analytics': return 'AI-Мониторинг транзита - Аналитика';
+      case '/transit-table': return 'AI-Мониторинг транзита - База знаний';
+      default: return 'AI-Мониторинг транзита';
     }
   };
 
@@ -244,7 +244,7 @@ export default function App() {
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
             />
-            <p className="text-gray-600 dark:text-gray-400">Загрузка Gray Tranzit...</p>
+            <p className="text-gray-600 dark:text-gray-400">Загрузка AI-Мониторинг транзита...</p>
           </div>
         </div>
       </ThemeProvider>
