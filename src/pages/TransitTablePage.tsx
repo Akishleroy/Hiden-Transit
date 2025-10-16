@@ -25,7 +25,7 @@ import {
 import { TransitRecord, FilterState } from '../types/transit';
 import { generateMockDashboardStats } from '../services/transitApi';
 import { dataService, ImportedRecord } from '../services/dataService';
-import { toast } from 'sonner@2.0.3';
+import { toast } from "sonner";
 
 interface TransitTablePageProps {
   initialFilters?: FilterState;
@@ -76,7 +76,7 @@ export const TransitTablePage: React.FC<TransitTablePageProps> = ({
       },
       quick_filters: {
         only_anomalies: false,
-        critical_only: false,
+        // critical_only: false,
         high_probability_only: false,
         recent_only: false
       }
@@ -171,7 +171,7 @@ export const TransitTablePage: React.FC<TransitTablePageProps> = ({
       },
       quick_filters: {
         only_anomalies: false,
-        critical_only: false,
+        // critical_only: false,
         high_probability_only: false,
         recent_only: false
       }
